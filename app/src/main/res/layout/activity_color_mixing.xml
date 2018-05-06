@@ -5,9 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    tools:context="com.osram.os.demos.Horticulture"
-    tools:layout_editor_absoluteY="81dp">
+    tools:context=".ColorMixing">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vpPager"
@@ -51,6 +49,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.4"/>
 
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
@@ -61,8 +60,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0">
 
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintTop_toTopOf="@id/constraintLayout2" />
         <!--<View-->
         <!--android:id="@+id/border_3"-->
         <!--android:layout_width="match_parent"-->
@@ -106,19 +113,8 @@
             android:paddingTop="7dp"
             android:theme="@style/SeekBarColorDeepBlue"
             android:thumbTint="@color/colorBlue"
-            app:layout_constraintEnd_toStartOf="@+id/tvBlue"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvBlue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="32dp"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <SeekBar
@@ -127,24 +123,15 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
-            android:theme="@style/SeekBarColorLime"
-            android:thumbTint="@color/colorLime"
-            app:layout_constraintEnd_toStartOf="@+id/tvLime"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekDeepBlue" />
-
-        <TextView
-            android:id="@+id/tvLime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/colorPrimary"
+            android:theme="@style/SeekBarColorBlue"
+            android:thumbTint="@color/colorPatina"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekDeepBlue" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <SeekBar
             android:id="@+id/seekGreen"
@@ -155,26 +142,12 @@
             android:layout_marginTop="8dp"
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
-            android:theme="@style/SeekBarColorRed"
-            android:thumbTint="@color/colorRed"
-            app:layout_constraintEnd_toStartOf="@+id/tvLime"
+            android:theme="@style/SeekBarColorGreen"
+            android:thumbTint="@color/colorGreen"
+            app:layout_constraintEnd_toStartOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekBlue" />
+            app:layout_constraintTop_toBottomOf="@+id/seekDeepBlue" />
 
-        <SeekBar
-            android:id="@+id/seekBlue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:paddingBottom="7dp"
-            android:paddingTop="7dp"
-            android:theme="@style/SeekBarColorFarRed"
-            android:thumbTint="@color/colorFarRed"
-            app:layout_constraintEnd_toStartOf="@+id/tvFarRed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekGreen" />
 
         <SeekBar
             android:id="@+id/seekLime"
@@ -185,61 +158,11 @@
             android:layout_marginTop="8dp"
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
-            android:theme="@style/SeekBarColorPurple"
-            android:thumbTint="@color/colorPurple"
-            app:layout_constraintEnd_toStartOf="@+id/tvPurple"
-            app:layout_constraintStart_toStartOf="parent"
+            android:theme="@style/SeekBarColorLime"
+            android:thumbTint="@color/colorLime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/seekBlue" />
-
-        <TextView
-            android:id="@+id/tvRed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekBlue" />
-
-        <TextView
-            android:id="@+id/tvFarRed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekGreen" />
-
-        <TextView
-            android:id="@+id/tvPurple"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:text="0"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekBlue" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Use the sliders to create light recipes"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnReset"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekLime" />
 
         <Button
             android:id="@+id/btnReset"
@@ -252,13 +175,88 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <SeekBar
+            android:id="@+id/seekAmber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:theme="@style/SeekBarColorAmber"
+            android:thumbTint="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/seekLime" />
+
+        <SeekBar
+            android:id="@+id/seekYellow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:theme="@style/SeekBarColorYellow"
+            android:thumbTint="@color/colorYellow"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekGreen" />
+
+        <SeekBar
+            android:id="@+id/seekRed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:theme="@style/SeekBarColorRed"
+            android:thumbTint="@color/colorRed"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekYellow" />
+
+        <SeekBar
+            android:id="@+id/seekWhite1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:theme="@style/SeekBarColorWhite1"
+            android:thumbTint="@color/colorBlack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/seekAmber" />
+
+        <SeekBar
+            android:id="@+id/seekWhite2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:theme="@style/SeekBarColorWhite2"
+            android:thumbTint="@color/colorBlack"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekRed" />
+
     </android.support.constraint.ConstraintLayout>
 
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="64dp"
         android:layout_marginTop="16dp"
         android:background="@color/colorLightGrey"
         app:layout_constraintTop_toBottomOf="@+id/pageIndicatorView">

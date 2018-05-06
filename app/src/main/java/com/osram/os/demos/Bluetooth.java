@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -350,7 +351,7 @@ public class Bluetooth extends AppCompatActivity implements AdapterView.OnItemCl
 //                    bluetoothDB.insertData("","");
                     bluetoothDB.updateContact(2, deviceName, deviceAddress);
                     bluetoothDB.closeDB();
-                    Intent intent1 = new Intent(Bluetooth.this, DeviceScanActivity.class);
+                    Intent intent1 = new Intent(Bluetooth.this, ColorMixing.class); // connect to DeviceScanActivity for heart-rate mode
                     intent1.putExtra("btdevice", mBTDevice); // maintain BT connection
                     startActivity(intent1);
                     break;

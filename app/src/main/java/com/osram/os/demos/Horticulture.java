@@ -1,6 +1,5 @@
 package com.osram.os.demos;
 
-import android.app.Application;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,27 +10,21 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.UUID;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class Horticulture extends AppCompatActivity implements View.OnClickListener {
     FragmentPagerAdapter adapterViewPager;
@@ -139,27 +132,27 @@ public class Horticulture extends AppCompatActivity implements View.OnClickListe
 //        tvReset.setOnClickListener(this);
         tvPPF = findViewById(R.id.tvPPF);
         tvBPF = findViewById(R.id.tvBPF);
-        blueSeek = findViewById(R.id.blueSeek);
+        blueSeek = findViewById(R.id.seekDeepBlue);
         tvBlue = findViewById(R.id.tvBlue);
         blueSeek.setMax(255);
         blueSeek.setProgress(0);
         tvBlue.setText("0");
-        limeSeek = findViewById(R.id.limeSeek);
+        limeSeek = findViewById(R.id.seekBlue);
         tvLime = findViewById(R.id.tvLime);
         limeSeek.setMax(255);
         limeSeek.setProgress(0);
         tvLime.setText("0");
-        redSeek = findViewById(R.id.redSeek);
+        redSeek = findViewById(R.id.seekGreen);
         tvRed = findViewById(R.id.tvRed);
         redSeek.setMax(255);
         redSeek.setProgress(0);
         tvRed.setText("0");
-        farredSeek = findViewById(R.id.farredSeek);
+        farredSeek = findViewById(R.id.seekBlue);
         tvFarRed = findViewById(R.id.tvFarRed);
         farredSeek.setMax(255);
         farredSeek.setProgress(0);
         tvFarRed.setText("0");
-        purpleSeek = findViewById(R.id.purpleSeek);
+        purpleSeek = findViewById(R.id.seekLime);
         tvPurple = findViewById(R.id.tvPurple);
         purpleSeek.setMax(255);
         purpleSeek.setProgress(0);
