@@ -101,9 +101,201 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
                 updateGraph();
                 Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPagerColor+":0");
                 fragment.updateGraph(0, deepbluei);
+                int j = 170; // 0xAA
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(deepbluei);
+                try {
+                    //set time in milix
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        SeekBlue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                bluei = i;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                updateGraph();
+                Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPagerColor+":0");
+                fragment.updateGraph(1, bluei);
                 int j = 187; // 0xBB
-//                mBluetoothConnection.write(j);
-//                mBluetoothConnection.write(deepbluei);
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(bluei);
+                try {
+                    //set time in milix
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        SeekGreen.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                greeni = i;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                updateGraph();
+                Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPagerColor+":0");
+                fragment.updateGraph(2, greeni);
+                int j = 204; // 0xCC
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(greeni);
+                try {
+                    //set time in milix
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        SeekLime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                limei = i;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                updateGraph();
+                Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPagerColor+":0");
+                fragment.updateGraph(3, limei);
+                int j = 221; // 0xDD
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(limei);
+                try {
+                    //set time in milix
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        SeekYellow.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                yellowi = i;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                updateGraph();
+                Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPagerColor+":0");
+                fragment.updateGraph(4, yellowi);
+                int j = 238; // 0xEE
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(yellowi);
+                try {
+                    //set time in milix
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        SeekAmber.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                amberi = i;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                updateGraph();
+                Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPagerColor+":0");
+                fragment.updateGraph(5, amberi);
+                int j = 255; // 0xFF
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(amberi);
+                try {
+                    //set time in milix
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        SeekRed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                redi = i;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                updateGraph();
+                Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPagerColor+":0");
+                fragment.updateGraph(6, redi);
+                int j = 160; // 0xA0
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(redi);
+                try {
+                    //set time in milix
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        SeekWhite1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                white1i = i;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                updateGraph();
+                Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPagerColor+":0");
+                fragment.updateGraph(7, white1i);
+                int j = 176; // 0xB0
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(white1i);
+                try {
+                    //set time in milix
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        SeekWhite2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                white2i = i;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                updateGraph();
+                Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPagerColor+":0");
+                fragment.updateGraph(8, white2i);
+                int j = 192; // 0xC0
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(white2i);
                 try {
                     //set time in milix
                     Thread.sleep(10);
