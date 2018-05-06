@@ -90,6 +90,9 @@
             android:enabled="true" />
         <service android:name="com.realsil.android.blehub.dfu.DfuService" />
 
+        <activity
+            android:name=".ColorMixing"
+            android:label="@string/title_activity_color_mixing"></activity>
     </application>
 
 </manifest>
