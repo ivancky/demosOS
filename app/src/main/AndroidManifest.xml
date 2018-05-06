@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.osram.os.demos">
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.MEDIA_CONTENT_CONTROL"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.SYSTEM_ALERT_WINDOW"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.GET_TASKS"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.CHANGE_WIFI_STATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Horticulture"
+            android:label="@string/title_activity_horticulture"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Bluetooth" />
+        <activity
+            android:name=".Horticulture_recipe"
+            android:label="@string/title_activity_horticulture_recipe"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".DeviceScanActivity" />
+        <activity android:name=".HeartRate" />
+
+        <service
+            android:name="com.yc.peddemo.sdk.BluetoothLeService"
+            android:enabled="true"
+            android:theme="@style/PcmTextAppearance" />
+        <service
+            android:name="com.yc.peddemo.update.UpdateService"
+            android:enabled="true" />
+        <service android:name="com.realsil.android.blehub.dfu.DfuService" />
+
+    </application>
+
+</manifest>

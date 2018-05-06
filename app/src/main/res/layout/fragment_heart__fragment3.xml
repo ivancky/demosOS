@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/colorLightGrey"
+    android:id="@+id/fragment3"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_lowest_rate"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="--"
+        android:textColor="#777"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/divider_1"
+        app:layout_constraintTop_toTopOf="@+id/tv_verage_rate" />
+
+    <TextView
+        android:id="@+id/stat_detail_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Min"
+        android:textColor="#777"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_lowest_rate"
+        app:layout_constraintStart_toStartOf="@+id/tv_lowest_rate"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lowest_rate" />
+
+    <View
+        android:id="@+id/divider_1"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:background="#ccc"
+        app:layout_constraintTop_toTopOf="@+id/tv_verage_rate"
+        app:layout_constraintEnd_toStartOf="@+id/tv_verage_rate"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBPF" />
+
+    <TextView
+        android:id="@+id/tv_verage_rate"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="--"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvBPF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="Average"
+        android:textColor="#777"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_verage_rate"
+        app:layout_constraintStart_toStartOf="@+id/tv_verage_rate"
+        app:layout_constraintTop_toBottomOf="@+id/tv_verage_rate" />
+
+    <View
+        android:id="@+id/divider_2"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="#ccc"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBPF"
+        app:layout_constraintStart_toEndOf="@+id/tv_verage_rate"
+        app:layout_constraintTop_toTopOf="@+id/tv_verage_rate" />
+
+    <TextView
+        android:id="@+id/tv_highest_rate"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="--"
+        android:textColor="#777"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/divider_2"
+        app:layout_constraintTop_toTopOf="@+id/tv_verage_rate" />
+
+    <TextView
+        android:id="@+id/stat_detail_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="Max"
+        android:textColor="#777"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_highest_rate"
+        app:layout_constraintStart_toStartOf="@+id/tv_highest_rate"
+        app:layout_constraintTop_toBottomOf="@+id/tv_highest_rate" />
+
+</android.support.constraint.ConstraintLayout>

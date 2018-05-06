@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical" android:layout_width="match_parent"
+android:background="@color/colorLightGrey"
+android:layout_height="match_parent"
+    android:id="@+id/fragment2"
+android:tag="Fragment2">
+
+
+    <TextView
+        android:id="@+id/tvCCT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="-- K"
+        android:textColor="@color/colorBlack"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="Suggested CCT"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCCT"
+        app:layout_constraintStart_toStartOf="@+id/tvCCT"
+        app:layout_constraintTop_toBottomOf="@+id/tvCCT" />
+
+
+
+</android.support.constraint.ConstraintLayout>
