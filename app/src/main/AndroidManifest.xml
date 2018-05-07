@@ -79,8 +79,8 @@
             android:label="@string/title_activity_horticulture_recipe"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DeviceScanActivity" />
-        <activity android:name=".HeartRate" />
-
+        <activity android:name=".HeartRate"
+            android:theme="@style/AppTheme.NoActionBar" />
         <service
             android:name="com.yc.peddemo.sdk.BluetoothLeService"
             android:enabled="true"

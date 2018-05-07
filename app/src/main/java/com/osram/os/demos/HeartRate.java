@@ -28,6 +28,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -40,6 +42,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -170,11 +173,32 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
     private Heart_Fragment2 m2ndFragment;
     private Heart_Fragment3 m3rdFragment;
 
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    return true;
+                case R.id.navigation_dashboard:
+                    return true;
+//                case R.id.navigation_notifications:
+//                    mTextMessage.setText(R.string.title_notifications);
+//                    return true;
+            }
+            return false;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.heart_rate);
-        getSupportActionBar().setTitle("Heart-Rate Sensing");
+//        getSupportActionBar().setTitle("Heart-Rate Sensing");
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
@@ -403,37 +427,10 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
             mHandler.sendEmptyMessage(UPDATA_REAL_RATE_MSG);
 //			String ttempRate = Integer.toString(tempRate);
 //			byte[] bytes = ttempRate.getBytes(Charset.defaultCharset());
+            mBluetoothConnection.write(69); // Hex 45
             mBluetoothConnection.write(tempRate);
             mSeries2.appendData(new DataPoint(graph2LastXValue, tempRate), true, 10000);
             graph2LastXValue += 1;
-
-//			handler.post(new Runnable() {
-//				public void run() {
-//					int step = 42;
-//					int CCT;
-//					CCT = tempRate * step;
-//					tvCCT.setText(CCT + " K");
-//					if(tempRate <70){
-//						tvStress.setText("Low");
-//						tvStress.setTextColor(ContextCompat.getColor(HeartRate.this, R.color.colorGreen));
-//					}else if(tempRate > 69 && tempRate < 90){
-//						tvStress.setText("Normal");
-//						tvStress.setTextColor(ContextCompat.getColor(HeartRate.this, R.color.colorBlack));
-//					}
-//					else{
-//						tvStress.setText("High");
-//						tvStress.setTextColor(ContextCompat.getColor(HeartRate.this, R.color.colorRed));
-//					}}
-//			});
-
-//			Fragment heart_fragment1 = new Heart_Fragment1();//Get Fragment Instance
-//			Bundle data = new Bundle();//create bundle instance
-//			data.putInt("key", tempRate);//put string to pass with a key value
-//			heart_fragment1.setArguments(data);//Set bundle data to fragment
-
-//			FragmentManager fm = getSupportFragmentManager();
-//			Heart_Fragment1 fragment = (Heart_Fragment1) fm.findFragmentById(R.id.vpPager);
-//			fragment.setStress(tempRate);
 
             Heart_Fragment1 fragment = (Heart_Fragment1) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPager+":1");
             fragment.setStress(tempRate);
@@ -458,6 +455,7 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
         }
 
     };
+
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
