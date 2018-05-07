@@ -50,36 +50,6 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5"
             app:layout_constraintTop_toTopOf="@id/constraintLayout2" />
-        <!--<View-->
-        <!--android:id="@+id/border_3"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:background="@color/colorPrimary"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--tools:layout_editor_absoluteX="1dp" />-->
-
-        <!--<View-->
-        <!--android:id="@+id/border_4"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:background="@color/colorPrimary"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--tools:layout_editor_absoluteX="1dp" />-->
-
-        <!--<View-->
-        <!--android:id="@+id/border_5"-->
-        <!--android:layout_width="1dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:background="@color/colorPrimary"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--tools:layout_editor_absoluteX="1dp" />-->
-
-        <!--<View-->
-        <!--android:id="@+id/border_6"-->
-        <!--android:layout_width="1dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:background="@color/colorPrimary"-->
-        <!--app:layout_constraintRight_toRightOf="parent" />-->
 
         <SeekBar
             android:id="@+id/seekDeepBlue"
@@ -210,7 +180,7 @@
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
             android:theme="@style/SeekBarColorWhite1"
-            android:thumbTint="@color/colorBlack"
+            android:thumbTint="@color/colorLightRed"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/seekAmber" />
@@ -225,13 +195,11 @@
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
             android:theme="@style/SeekBarColorWhite2"
-            android:thumbTint="@color/colorBlack"
+            android:thumbTint="@color/colorLightBlue"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/seekRed" />
-
     </android.support.constraint.ConstraintLayout>
-
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"

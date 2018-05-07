@@ -1,6 +1,7 @@
 package com.osram.os.demos;
 
 import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -49,6 +50,9 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
                 case R.id.navigation_home:
                     return true;
                 case R.id.navigation_dashboard:
+                    Intent intent = new Intent(ColorMixing.this, DeviceScanActivity.class);
+                    intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
+                    startActivity(intent);
                     return true;
 //                case R.id.navigation_notifications:
 //                    mTextMessage.setText(R.string.title_notifications);
@@ -308,11 +312,57 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) { // reset all
-        handler.post(new Runnable() {
-            public void run() {
+        resetColors();
+    }
 
-            }
-        });
+    public void resetColors(){
+                Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.vpPagerColor + ":0");
+                fragment.updateGraph(0, 0);
+                fragment.updateGraph(1, 0);
+                fragment.updateGraph(2, 0);
+                fragment.updateGraph(3, 0);
+                fragment.updateGraph(4, 0);
+                fragment.updateGraph(5, 0);
+                fragment.updateGraph(6, 0);
+                fragment.updateGraph(7, 0);
+                fragment.updateGraph(8, 0);
+                fragment.updateGraph(9, 0);
+                SeekDeepblue.setProgress(0);
+                SeekBlue.setProgress(0);
+                SeekGreen.setProgress(0);
+                SeekLime.setProgress(0);
+                SeekYellow.setProgress(0);
+                SeekAmber.setProgress(0);
+                SeekRed.setProgress(0);
+                SeekWhite1.setProgress(0);
+                SeekWhite2.setProgress(0);
+                int j = 170; //0xDD
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(0);
+                j = 187; //0xDD
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(0);
+                j = 204; //0xDD
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(0);
+                j = 221; //0xDD
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(0);
+                j = 238; //0xEE
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(0);
+                j = 255; //0xDD
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(0);
+                j = 160; //0xDD
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(0);
+                j = 176; //0xDD
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(0);
+                j = 192; //0xEE
+                mBluetoothConnection.write(j);
+                mBluetoothConnection.write(0);
     }
 
     public void updateGraph() {
@@ -322,8 +372,6 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
             }
         });
     }
-
-
 
     private class MyPagerAdapter extends FragmentPagerAdapter {
         // other code in your custom FragmentPagerAdapter...
