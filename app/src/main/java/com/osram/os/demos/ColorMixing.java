@@ -47,9 +47,10 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.color_mixing:
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.heart_rate:
+                    resetColors();
                     Intent intent = new Intent(ColorMixing.this, DeviceScanActivity.class);
                     intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
                     startActivity(intent);
@@ -68,6 +69,8 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_color_mixing);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setSelectedItemId(R.id.color_mixing);
+
 
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPagerColor);
         adapterViewPager = new ColorMixing.MyPagerAdapter(getSupportFragmentManager());
@@ -336,33 +339,8 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
                 SeekRed.setProgress(0);
                 SeekWhite1.setProgress(0);
                 SeekWhite2.setProgress(0);
-                int j = 170; //0xDD
-                mBluetoothConnection.write(j);
-                mBluetoothConnection.write(0);
-                j = 187; //0xDD
-                mBluetoothConnection.write(j);
-                mBluetoothConnection.write(0);
-                j = 204; //0xDD
-                mBluetoothConnection.write(j);
-                mBluetoothConnection.write(0);
-                j = 221; //0xDD
-                mBluetoothConnection.write(j);
-                mBluetoothConnection.write(0);
-                j = 238; //0xEE
-                mBluetoothConnection.write(j);
-                mBluetoothConnection.write(0);
-                j = 255; //0xDD
-                mBluetoothConnection.write(j);
-                mBluetoothConnection.write(0);
-                j = 160; //0xDD
-                mBluetoothConnection.write(j);
-                mBluetoothConnection.write(0);
-                j = 176; //0xDD
-                mBluetoothConnection.write(j);
-                mBluetoothConnection.write(0);
-                j = 192; //0xEE
-                mBluetoothConnection.write(j);
-                mBluetoothConnection.write(0);
+                mBluetoothConnection.write(10);
+                mBluetoothConnection.write(10);
     }
 
     public void updateGraph() {

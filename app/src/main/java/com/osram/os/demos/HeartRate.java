@@ -169,6 +169,8 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
     Handler handler;
     FragmentPagerAdapter adapterViewPager;
 
+    BluetoothDevice bluetoothDevice;
+
     private Heart_Fragment1 m1stFragment;
     private Heart_Fragment2 m2ndFragment;
     private Heart_Fragment3 m3rdFragment;
@@ -179,17 +181,25 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.color_mixing:
+                    mWriteCommand
+                            .sendRateTestCommand(GlobalVariable.RATE_TEST_STOP);
+                    resetColors();
+                    Intent intent = new Intent(HeartRate.this, ColorMixing.class);
+                    intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
+                    startActivity(intent);
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.heart_rate:
                     return true;
-//                case R.id.navigation_notifications:
-//                    mTextMessage.setText(R.string.title_notifications);
-//                    return true;
             }
             return false;
         }
     };
+
+    public void resetColors(){
+        mBluetoothConnection.write(10);
+        mBluetoothConnection.write(10);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,6 +209,7 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setSelectedItemId(R.id.heart_rate);
 
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
@@ -233,11 +244,9 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
         CURRENT_STATUS = CONNECTING;
         upDateTodaySwimData();
 
-        // retrieve the intent from MainActivity - use to get the paired device
-        final BluetoothDevice bluetoothDevice = getIntent().getExtras().getParcelable("btdevice");
-
-//        maintain connection on Activity 2
-        mBluetoothConnection = new BluetoothConnectionService(this);
+        //        maintain connection on this Activity
+        bluetoothDevice = getIntent().getExtras().getParcelable("btdevice");
+        mBluetoothConnection = new BluetoothConnectionService(HeartRate.this);
         mBluetoothConnection.startClient(bluetoothDevice, MY_UUID_INSECURE);
 
 //		GraphView graph = (GraphView) rootView.findViewById(R.id.graph);
@@ -249,7 +258,7 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
         graph2.addSeries(mSeries2);
         graph2.getViewport().setXAxisBoundsManual(true);
         graph2.getViewport().setMinX(0);
-        graph2.getViewport().setMaxX(10);
+        graph2.getViewport().setMaxX(15);
         graph2.getViewport().setYAxisBoundsManual(true);
         graph2.getViewport().setMinY(50);
         graph2.getViewport().setMaxY(150);
@@ -270,7 +279,7 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
                 mWriteCommand
                         .sendRateTestCommand(GlobalVariable.RATE_TEST_START);
             }
-        }, 5000);
+        }, 10000);
 
 //
     }

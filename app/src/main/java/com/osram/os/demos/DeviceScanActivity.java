@@ -37,6 +37,7 @@ import com.yc.peddemo.sdk.BLEServiceOperate;
 import com.yc.peddemo.sdk.DeviceScanInterfacer;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Activity for scanning and displaying available Bluetooth LE devices.
@@ -56,9 +57,20 @@ public class DeviceScanActivity extends ListActivity implements DeviceScanInterf
 
 	private BLEServiceOperate mBLEServiceOperate;
 
-	@Override
+	BluetoothDevice bluetoothDevice;
+
+    BluetoothConnectionService mBluetoothConnection;
+    private static final UUID MY_UUID_INSECURE = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+
+
+    @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+        //        maintain connection on this Activity
+        bluetoothDevice = getIntent().getExtras().getParcelable("btdevice");
+//        mBluetoothConnection = new BluetoothConnectionService(DeviceScanActivity.this);
+//        mBluetoothConnection.startClient(bluetoothDevice, MY_UUID_INSECURE);
 
 //		getActionBar().setTitle("Bluetooth Connection");//		GBUtils gbUtils = GBUtils.getInstance();
 //		String[] body= {"中文全字库","粤语全字庫","英语Full font","丹麦语Fuld font","德语Vollständiger Schrift","西班牙completo de fuente","法语police complète",
@@ -73,8 +85,8 @@ public class DeviceScanActivity extends ListActivity implements DeviceScanInterf
 //		final BluetoothDevice bluetoothDevice = getIntent().getExtras().getParcelable("btdevice");
 //
 ////        maintain connection on Activity 2
-//		mBluetoothConnection = new BluetoothConnectionService(DeviceScanActivity.this);
-//		mBluetoothConnection.startClient(bluetoothDevice, MY_UUID_INSECURE);
+		mBluetoothConnection = new BluetoothConnectionService(DeviceScanActivity.this);
+		mBluetoothConnection.startClient(bluetoothDevice, MY_UUID_INSECURE);
 
 		mHandler = new Handler();
 		mBLEServiceOperate = BLEServiceOperate
@@ -168,14 +180,18 @@ public class DeviceScanActivity extends ListActivity implements DeviceScanInterf
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// retrieve the intent from MainActivity - use to get the paired device
-		final BluetoothDevice bluetoothDevice = getIntent().getExtras().getParcelable("btdevice");
-		final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);// ��ʾ���������豸
+
+        Intent intent = new Intent(DeviceScanActivity.this, HeartRate.class);
+        intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
+//        startActivity(intent);
+//		final BluetoothDevice bluetoothDevice = getIntent().getExtras().getParcelable("btdevice");
+		final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
 		if (device == null)
 			return;
-		final Intent intent = new Intent(this, HeartRate.class);
+//		final Intent intent = new Intent(this, HeartRate.class);
 		intent.putExtra(HeartRate.EXTRAS_DEVICE_NAME, device.getName());
 		intent.putExtra(HeartRate.EXTRAS_DEVICE_ADDRESS, device.getAddress());
-		intent.putExtra("btdevice", bluetoothDevice);
+//		intent.putExtra("btdevice", bluetoothDevice);
 		if (mScanning) {
 			mBLEServiceOperate.stopLeScan();
 			mScanning = false;

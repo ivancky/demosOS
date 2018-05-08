@@ -25,7 +25,7 @@
         android:layout_width="1dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"/>
+        app:layout_constraintGuide_begin="547dp" />
     <!--<android.support.design.widget.BottomNavigationView-->
         <!--android:id="@+id/navigation"-->
         <!--android:layout_width="0dp"-->
@@ -144,10 +144,10 @@
         android:layout_height="57dp"
         android:background="@color/colorLightGrey"
         app:itemTextColor="@drawable/tab_color_selector"
-        app:itemIconTint="@drawable/tab_color_selector"
+        app:itemIconTint="@drawable/tab_color_selector_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/color" />
 
 </android.support.constraint.ConstraintLayout>
