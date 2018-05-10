@@ -175,6 +175,14 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
     private Heart_Fragment2 m2ndFragment;
     private Heart_Fragment3 m3rdFragment;
 
+    private final int  DeepBlue  =   0,  Blue      =   1, Green     =   2, Lime      =   3, Yellow    =   4, Amber     =   5, Red       =   6, White1    =   7, White2    =   8;
+    private int j = 0;
+
+    int num = 0;
+    int bpm = 0;
+    float avg = 0;
+    int[] IntegerArray = new int [5];
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -182,12 +190,10 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.color_mixing:
-                    mWriteCommand
-                            .sendRateTestCommand(GlobalVariable.RATE_TEST_STOP);
-                    resetColors();
                     Intent intent = new Intent(HeartRate.this, ColorMixing.class);
                     intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
                     startActivity(intent);
+                    resetColors();
                     return true;
                 case R.id.heart_rate:
                     return true;
@@ -197,8 +203,19 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
     };
 
     public void resetColors(){
-        mBluetoothConnection.write(10);
-        mBluetoothConnection.write(10);
+        handler.post(new Runnable() {
+            public void run() {
+                mWriteCommand.sendRateTestCommand(GlobalVariable.RATE_TEST_STOP);
+                try {
+                    //set time in milix
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                mBluetoothConnection.write(10);
+                mBluetoothConnection.write(10);
+            }
+        });
     }
 
     @Override
@@ -426,6 +443,43 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
         return ret;
     }
 
+    public void setColor(int color, int intensity){
+        switch(color){
+            case DeepBlue:
+                 j = 170; // 0xAA
+                break;
+            case Blue:
+                 j = 187; // 0xBB
+                break;
+            case Green:
+                 j = 204; // 0xCC
+                break;
+            case Lime:
+                 j = 221; // 0xDD
+                break;
+            case Yellow:
+                 j = 238; // 0xEE
+                break;
+            case Amber:
+                 j = 255; // 0xFF
+                break;
+            case Red:
+                 j = 160; // 0xA0
+                break;
+            case White1:
+                 j = 176; // 0xB0
+                break;
+            case White2:
+                 j = 192; // 0xC0
+                break;
+            default:
+                break;
+        }
+        mBluetoothConnection.write(j);
+        mBluetoothConnection.write(intensity);
+        j = 0;
+    }
+
     public RateChangeListener mOnRateListener = new RateChangeListener() {
 
         @Override
@@ -436,8 +490,49 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
             mHandler.sendEmptyMessage(UPDATA_REAL_RATE_MSG);
 //			String ttempRate = Integer.toString(tempRate);
 //			byte[] bytes = ttempRate.getBytes(Charset.defaultCharset());
-            mBluetoothConnection.write(69); // Hex 45
-            mBluetoothConnection.write(tempRate);
+//            mBluetoothConnection.write(69); // Hex 45
+//            mBluetoothConnection.write(tempRate);
+
+            IntegerArray[num] = tempRate;
+            num = num + 1;
+            if(num == 5) { // 5 values moving average
+                for (int j = 0; j < 5; j++) {
+                    bpm = IntegerArray[j] + bpm;
+                }
+                avg = bpm/5;
+                num = 0;
+                bpm = 0;
+            }
+
+            if(avg <= 60){
+                mBluetoothConnection.write(100);
+                mBluetoothConnection.write(10);
+            }
+            else if (avg > 60 && avg <= 70){
+                mBluetoothConnection.write(100);
+                mBluetoothConnection.write(20);
+            }
+            else if (avg > 70 && avg <= 80){
+                mBluetoothConnection.write(100);
+                mBluetoothConnection.write(30);
+            }
+            else if (avg > 80 && avg <= 90){
+                mBluetoothConnection.write(100);
+                mBluetoothConnection.write(40);
+            }
+            else if (avg > 90 && avg <= 100){
+                mBluetoothConnection.write(100);
+                mBluetoothConnection.write(50);
+            }
+            else if (avg > 100 && avg <= 110){
+                mBluetoothConnection.write(100);
+                mBluetoothConnection.write(60);
+            }
+            else if (avg > 110) {
+                mBluetoothConnection.write(100);
+                mBluetoothConnection.write(70);
+            }
+
             mSeries2.appendData(new DataPoint(graph2LastXValue, tempRate), true, 10000);
             graph2LastXValue += 1;
 

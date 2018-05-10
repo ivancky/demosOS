@@ -50,10 +50,10 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
                 case R.id.color_mixing:
                     return true;
                 case R.id.heart_rate:
-                    resetColors();
                     Intent intent = new Intent(ColorMixing.this, DeviceScanActivity.class);
                     intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
                     startActivity(intent);
+                    resetColors();
                     return true;
 //                case R.id.navigation_notifications:
 //                    mTextMessage.setText(R.string.title_notifications);
@@ -319,6 +319,10 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
     }
 
     public void resetColors(){
+        handler.post(new Runnable() {
+            public void run() {
+                mBluetoothConnection.write(10);
+                mBluetoothConnection.write(10);
                 Color_FragmentGraph fragment = (Color_FragmentGraph) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.vpPagerColor + ":0");
                 fragment.updateGraph(0, 0);
                 fragment.updateGraph(1, 0);
@@ -339,8 +343,8 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
                 SeekRed.setProgress(0);
                 SeekWhite1.setProgress(0);
                 SeekWhite2.setProgress(0);
-                mBluetoothConnection.write(10);
-                mBluetoothConnection.write(10);
+            }
+        });
     }
 
     public void updateGraph() {
