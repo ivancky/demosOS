@@ -94,6 +94,18 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
         SeekWhite2 = findViewById(R.id.seekWhite2);
         btnReset2 = findViewById(R.id.btnReset2);
         btnReset2.setOnClickListener(this);
+        SeekDeepblue.setMax(255);
+        SeekBlue.setMax(255);
+        SeekGreen.setMax(255);
+        SeekLime.setMax(255);
+        SeekYellow.setMax(255);
+        SeekAmber.setMax(255);
+        SeekRed.setMax(255);
+        SeekWhite1.setMax(255);
+        SeekWhite2.setMax(255);
+
+
+
 
         SeekDeepblue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

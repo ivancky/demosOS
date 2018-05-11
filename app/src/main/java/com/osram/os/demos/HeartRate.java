@@ -190,6 +190,7 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.color_mixing:
+//                    resetColors();
                     Intent intent = new Intent(HeartRate.this, ColorMixing.class);
                     intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
                     startActivity(intent);
@@ -205,10 +206,11 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
     public void resetColors(){
         handler.post(new Runnable() {
             public void run() {
+
                 mWriteCommand.sendRateTestCommand(GlobalVariable.RATE_TEST_STOP);
                 try {
                     //set time in milix
-                    Thread.sleep(10);
+                    Thread.sleep(100);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -504,31 +506,31 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
                 bpm = 0;
             }
 
-            if(avg <= 60){
+            if(tempRate <= 70){
                 mBluetoothConnection.write(100);
                 mBluetoothConnection.write(10);
             }
-            else if (avg > 60 && avg <= 70){
+            else if (tempRate > 70 && tempRate <= 75){
                 mBluetoothConnection.write(100);
                 mBluetoothConnection.write(20);
             }
-            else if (avg > 70 && avg <= 80){
+            else if (tempRate > 75 && tempRate <= 80){
                 mBluetoothConnection.write(100);
                 mBluetoothConnection.write(30);
             }
-            else if (avg > 80 && avg <= 90){
+            else if (tempRate > 80 && tempRate <= 85){
                 mBluetoothConnection.write(100);
                 mBluetoothConnection.write(40);
             }
-            else if (avg > 90 && avg <= 100){
+            else if (tempRate > 85 && tempRate <= 90){
                 mBluetoothConnection.write(100);
                 mBluetoothConnection.write(50);
             }
-            else if (avg > 100 && avg <= 110){
+            else if (tempRate > 90 && tempRate <= 100){
                 mBluetoothConnection.write(100);
                 mBluetoothConnection.write(60);
             }
-            else if (avg > 110) {
+            else if (tempRate > 100) {
                 mBluetoothConnection.write(100);
                 mBluetoothConnection.write(70);
             }
