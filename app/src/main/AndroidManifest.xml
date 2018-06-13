@@ -62,24 +62,34 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Horticulture"
             android:label="@string/title_activity_horticulture"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Bluetooth" />
+        <activity
+            android:name=".Horticulture_HP"
+            android:label="@string/title_activity_horticulture"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Bluetooth"
+            android:noHistory="true" />
         <activity
             android:name=".Horticulture_recipe"
             android:label="@string/title_activity_horticulture_recipe"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".DeviceScanActivity" />
+        <activity android:name=".DeviceScanActivity"
+            android:noHistory="true" />
         <activity android:name=".HeartRate"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <service
             android:name="com.yc.peddemo.sdk.BluetoothLeService"
@@ -93,6 +103,7 @@
         <activity
             android:name=".ColorMixing"
             android:label="@string/title_activity_color_mixing"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

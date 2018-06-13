@@ -118,6 +118,14 @@ public class DeviceScanActivity extends ListActivity implements DeviceScanInterf
 		return true;
 	}
 
+	public void onBackPressed(){
+		Intent intent = new Intent(DeviceScanActivity.this, ColorMixing.class);
+        intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
+		startActivity(intent);
+		finish();
+		super.onBackPressed();
+	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {

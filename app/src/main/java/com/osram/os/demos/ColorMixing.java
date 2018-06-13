@@ -1,5 +1,6 @@
 package com.osram.os.demos;
 
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.graphics.Color;
@@ -22,6 +23,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
+import com.yc.peddemo.utils.GlobalVariable;
 
 import java.util.UUID;
 
@@ -365,6 +367,19 @@ public class ColorMixing extends AppCompatActivity implements View.OnClickListen
 
             }
         });
+    }
+
+    public void onBackPressed(){
+        Intent intent = new Intent(ColorMixing.this, MainActivity.class);
+//        intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
+        startActivity(intent);
+        resetColors();
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (mBluetoothAdapter.isEnabled()) {
+            mBluetoothAdapter.disable();
+        }
+        super.onBackPressed();
+        finish();
     }
 
     private class MyPagerAdapter extends FragmentPagerAdapter {

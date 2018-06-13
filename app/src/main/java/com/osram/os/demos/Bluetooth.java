@@ -79,6 +79,9 @@ public class Bluetooth extends AppCompatActivity implements AdapterView.OnItemCl
                                     case "heart":
                                         id = 2;
                                         break;
+                                    case "horti2":
+                                        id = 3;
+                                        break;
                                     default:
                                         id = 0;
                                         break;
@@ -346,6 +349,15 @@ public class Bluetooth extends AppCompatActivity implements AdapterView.OnItemCl
                     intent.putExtra("btdevice", mBTDevice); // maintain BT connection
                     startActivity(intent);
                     break;
+                case "horti2":
+                    bluetoothDB.openDB();
+//                    bluetoothDB.insertData("","");
+                    bluetoothDB.updateContact(3, deviceName, deviceAddress);
+                    bluetoothDB.closeDB();
+                    Intent intent2 = new Intent(Bluetooth.this, Horticulture_HP.class);
+                    intent2.putExtra("btdevice", mBTDevice); // maintain BT connection
+                    startActivity(intent2);
+                    break;
                 case "heart":
                     bluetoothDB.openDB();
 //                    bluetoothDB.insertData("","");
@@ -394,6 +406,9 @@ public class Bluetooth extends AppCompatActivity implements AdapterView.OnItemCl
                 break;
             case "heart":
                 id = 2;
+                break;
+            case "horti2":
+                id = 3;
                 break;
             default:
                 id = 0;

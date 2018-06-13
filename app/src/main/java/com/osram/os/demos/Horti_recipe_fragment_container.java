@@ -78,39 +78,39 @@ public class Horti_recipe_fragment_container extends Fragment {
                     case 1: // Maintenance
                         final FragmentTransaction ft2 = getFragmentManager().beginTransaction();
 //                        ft2.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-                        ft2.replace(R.id.frameLayout, new Horti_recipe_fragment_maintainance());
+                        ft2.replace(R.id.frameLayout, new Horti_recipe_fragment_seedlings());
                         ft2.commit();
                         ft2.addToBackStack(null);
                         handler.post(new Runnable() {
                             public void run() {
-                                Horticulture_recipe.tvTitle.setText("Maintenance");
-                                Horticulture_recipe.tvColors.setText("Full Spectrum White");
+                                Horticulture_recipe.tvTitle.setText("Seedlings");
+                                Horticulture_recipe.tvColors.setText("Deep Blue + Hyper Red");
                             }
                         });
                         break;
                     case 2: // full solution
                         final FragmentTransaction ft3 = getFragmentManager().beginTransaction();
 //                        ft3.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-                        ft3.replace(R.id.frameLayout, new Horti_recipe_fragment_full());
+                        ft3.replace(R.id.frameLayout, new Horti_recipe_fragment_flowering());
                         ft3.commit();
                         ft3.addToBackStack(null);
                         handler.post(new Runnable() {
                             public void run() {
-                                Horticulture_recipe.tvTitle.setText("Full Solution");
-                                Horticulture_recipe.tvColors.setText("DB + HR + FSW + FR");
+                                Horticulture_recipe.tvTitle.setText("Flowering");
+                                Horticulture_recipe.tvColors.setText("DB + HR + FR");
                             }
                         });
                         break;
                     case 3: // flowering
                         final FragmentTransaction ft4 = getFragmentManager().beginTransaction();
 //                        ft4.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-                        ft4.replace(R.id.frameLayout, new Horti_recipe_fragment_flowering());
+                        ft4.replace(R.id.frameLayout, new Horti_recipe_fragment_fruiting());
                         ft4.commit();
                         ft4.addToBackStack(null);
                         handler.post(new Runnable() {
                             public void run() {
-                                Horticulture_recipe.tvTitle.setText("Flowering");
-                                Horticulture_recipe.tvColors.setText("Hyper Red + Far Red");
+                                Horticulture_recipe.tvTitle.setText("Fruiting");
+                                Horticulture_recipe.tvColors.setText("DB + W + HR + FR");
                             }
                         });
                         break;
@@ -127,9 +127,9 @@ public class Horti_recipe_fragment_container extends Fragment {
 
     private Demos[] plants = {
             new Demos(R.string.growth, R.drawable.plant_growth),
-            new Demos(R.string.maintainance, R.drawable.plant_maintainance),
-            new Demos(R.string.complete, R.drawable.complete),
+            new Demos(R.string.seedlings, R.drawable.plant_maintainance),
             new Demos(R.string.flowering, R.drawable.flowering),
+            new Demos(R.string.fruiting, R.drawable.dragonfruit),
 //            new Demos(R.string.mizuna, R.drawable.mizuna),
 //            new Demos(R.string.potatoes, R.drawable.potatoes),
 //            new Demos(R.string.avocado, R.drawable.avocado),

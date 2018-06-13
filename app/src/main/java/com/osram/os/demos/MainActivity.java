@@ -59,7 +59,12 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("key", "horti");
                         startActivity(intent);
                         break;
-                    case 1: // heart-rate sensing
+                    case 1: // horticulture
+                        Intent intent2 = new Intent(MainActivity.this, Bluetooth.class);
+                        intent2.putExtra("key", "horti2");
+                        startActivity(intent2);
+                        break;
+                    case 2: // heart-rate sensing
                         Intent intent1 = new Intent(MainActivity.this, Bluetooth.class);
                         intent1.putExtra("key", "heart");
                         startActivity(intent1);
@@ -84,10 +89,15 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    public void onBackPressed(){
+        this.finish();
+    }
+
     private Demos[] demos = {
 //            new Demos(R.string.filament, R.drawable.filament),
 //            new Demos(R.string.fog_detection_streetlight, R.drawable.fog),
             new Demos(R.string.horticulture_lighting, R.drawable.hortidemo),
+            new Demos(R.string.horticulture_lighting_OSLON, R.drawable.hortidemo2),
             new Demos(R.string.heart_rate_sensing, R.drawable.colors),
 //            new Demos(R.string.filament, R.drawable.filament),
 //            new Demos(R.string.fog_detection_streetlight, R.drawable.fog),

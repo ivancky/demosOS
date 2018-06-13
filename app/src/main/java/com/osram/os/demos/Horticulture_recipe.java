@@ -116,6 +116,12 @@ public class Horticulture_recipe extends AppCompatActivity {
 
     }
 
+    public void onBackPressed(){
+        Intent intent = new Intent(Horticulture_recipe.this, Horticulture.class);
+        intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
+        startActivity(intent);
+        finish();
+    }
 
     private class MyPagerAdapter3 extends FragmentPagerAdapter {
         // other code in your custom FragmentPagerAdapter...

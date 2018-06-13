@@ -538,11 +538,11 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
             mSeries2.appendData(new DataPoint(graph2LastXValue, tempRate), true, 10000);
             graph2LastXValue += 1;
 
-            Heart_Fragment1 fragment = (Heart_Fragment1) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPager+":1");
-            fragment.setStress(tempRate);
-
-            Heart_Fragment2 fragment1 = (Heart_Fragment2) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPager+":2");
-            fragment1.setCCT(tempRate);
+//            Heart_Fragment1 fragment = (Heart_Fragment1) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPager+":1");
+//            fragment.setStress(tempRate);
+//
+//            Heart_Fragment2 fragment1 = (Heart_Fragment2) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPager+":2");
+//            fragment1.setCCT(tempRate);
 
             Heart_Fragment3 fragment2 = (Heart_Fragment3) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPager+":0");
             fragment2.setMinMax(tempRate);
@@ -1358,45 +1358,49 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
     public void onBackPressed(){
         mWriteCommand
                 .sendRateTestCommand(GlobalVariable.RATE_TEST_STOP);
-        super.onBackPressed();
+        Intent intent = new Intent(HeartRate.this, ColorMixing.class);
+        intent.putExtra("btdevice", bluetoothDevice); // maintain BT connection
+        startActivity(intent);
         finish();
+        resetColors();
+        super.onBackPressed();
     }
 
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        // TODO Auto-generated method stub
-        if (CURRENT_STATUS == CONNECTING) {
-            Builder builder = new Builder(this);
-            builder.setMessage("Cancel connection?");
-            builder.setTitle("Exit");
-            builder.setPositiveButton("Yes",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            BluetoothAdapter mBluetoothAdapter = BluetoothAdapter
-                                    .getDefaultAdapter();
-                            if (mBluetoothAdapter == null) {
-                                finish();
-                            }
-                            if (mBluetoothAdapter.isEnabled()) {
-                                mBluetoothAdapter.disable();// 关闭蓝牙
-                            }
-                            finish();
-                        }
-                    });
-            builder.setNegativeButton("Cancel",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            builder.create().show();
-            return true;
-        }
-
-        return super.onKeyDown(keyCode, event);
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        // TODO Auto-generated method stub
+//        if (CURRENT_STATUS == CONNECTING) {
+//            Builder builder = new Builder(this);
+//            builder.setMessage("Cancel connection?");
+//            builder.setTitle("Exit");
+//            builder.setPositiveButton("Yes",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.dismiss();
+//                            BluetoothAdapter mBluetoothAdapter = BluetoothAdapter
+//                                    .getDefaultAdapter();
+//                            if (mBluetoothAdapter == null) {
+//                                finish();
+//                            }
+//                            if (mBluetoothAdapter.isEnabled()) {
+//                                mBluetoothAdapter.disable();// 关闭蓝牙
+//                            }
+//                            finish();
+//                        }
+//                    });
+//            builder.setNegativeButton("Cancel",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.dismiss();
+//                        }
+//                    });
+//            builder.create().show();
+//            return true;
+//        }
+//
+//        return super.onKeyDown(keyCode, event);
+//    }
 
     private boolean updateBleDialog() {
 
@@ -1887,9 +1891,10 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
 //	}
 
 
+
     private class MyPagerAdapter extends FragmentPagerAdapter {
         // other code in your custom FragmentPagerAdapter...
-        		private int NUM_ITEMS = 3;
+        		private int NUM_ITEMS = 1;
 
 		public MyPagerAdapter(FragmentManager fragmentManager) {
 			super(fragmentManager);
@@ -1909,10 +1914,10 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
             switch (position) {
                 case 0:
                     return new Heart_Fragment3();
-                case 1:
-                    return new Heart_Fragment1();
-                case 2:
-                    return new Heart_Fragment2();
+//                case 1:
+//                    return new Heart_Fragment1();
+//                case 2:
+//                    return new Heart_Fragment2();
                 default:
                     // This should never happen. Always account for each position above
                     return null;
@@ -1931,12 +1936,12 @@ public class HeartRate extends AppCompatActivity implements OnClickListener,
                 case 0:
                     m3rdFragment = (Heart_Fragment3) createdFragment;
                     break;
-                case 1:
-                    m1stFragment = (Heart_Fragment1) createdFragment;
-                    break;
-                case 2:
-                    m2ndFragment = (Heart_Fragment2) createdFragment;
-                    break;
+//                case 1:
+//                    m1stFragment = (Heart_Fragment1) createdFragment;
+//                    break;
+//                case 2:
+//                    m2ndFragment = (Heart_Fragment2) createdFragment;
+//                    break;
             }
             return createdFragment;
         }
