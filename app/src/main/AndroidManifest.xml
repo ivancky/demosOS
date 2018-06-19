@@ -86,6 +86,11 @@
             android:label="@string/title_activity_horticulture_recipe"
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Horticulture_recipe_HP"
+            android:label="@string/title_activity_horticulture_recipe"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DeviceScanActivity"
             android:noHistory="true" />
         <activity android:name=".HeartRate"
