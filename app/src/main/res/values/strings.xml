@@ -8,6 +8,7 @@
     <string name="heart_rate_sensing">S5 colors and heart-rate</string>
     <string name="fog_detection_streetlight">Fog detection</string>
     <string name="horticulture_lighting">Horticulture (Mid Power)</string>
+    <string name="S5_horti_demo">Duris S5 Horti</string>
     <string name="horticulture_lighting_OSLON">Horticulture (High Power)</string>
     <string name="filament">Filament</string>
     <string name="title_activity_horticulture">Horticulture</string>

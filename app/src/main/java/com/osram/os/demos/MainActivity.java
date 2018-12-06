@@ -1,7 +1,6 @@
 package com.osram.os.demos;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,8 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-
-import java.util.Arrays;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -69,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
                         intent1.putExtra("key", "heart");
                         startActivity(intent1);
                         break;
+                    case 3: // S5 horti demo
+                        Intent intent3 = new Intent(MainActivity.this, Bluetooth.class);
+                        intent3.putExtra("key", "S5");
+                        startActivity(intent3);
+                        break;
                     default:
                         break;
                 }
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
             new Demos(R.string.horticulture_lighting, R.drawable.hortidemo),
             new Demos(R.string.horticulture_lighting_OSLON, R.drawable.hortidemo2),
             new Demos(R.string.heart_rate_sensing, R.drawable.colors),
+            new Demos(R.string.S5_horti_demo, R.drawable.s5demo),
 //            new Demos(R.string.filament, R.drawable.filament),
 //            new Demos(R.string.fog_detection_streetlight, R.drawable.fog),
     };
