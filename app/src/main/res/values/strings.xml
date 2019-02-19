@@ -13,6 +13,7 @@
     <string name="filament">Filament</string>
     <string name="title_activity_horticulture">Horticulture</string>
     <string name="title_activity_heart">Heart</string>
+    <string name="wall_washer">Architecture</string>
 
     <!--Plant recipes-->
     <string name="growth">Growth</string>

@@ -70,6 +70,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".WallWasher"
+            android:label="WallWasher"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Horticulture"
             android:label="@string/title_activity_horticulture"
             android:noHistory="true"

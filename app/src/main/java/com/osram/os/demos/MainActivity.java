@@ -71,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
                         intent3.putExtra("key", "S5");
                         startActivity(intent3);
                         break;
+                    case 4: // wall washer demo
+                        Intent intent4 = new Intent(MainActivity.this, WallWasher.class);
+                        intent4.putExtra("key", "wall");
+                        startActivity(intent4);
+                        break;
                     default:
                         break;
                 }
@@ -102,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
             new Demos(R.string.horticulture_lighting_OSLON, R.drawable.hortidemo2),
             new Demos(R.string.heart_rate_sensing, R.drawable.colors),
             new Demos(R.string.S5_horti_demo, R.drawable.s5demo),
+            new Demos(R.string.wall_washer, R.drawable.wallwasher),
 //            new Demos(R.string.filament, R.drawable.filament),
 //            new Demos(R.string.fog_detection_streetlight, R.drawable.fog),
     };
