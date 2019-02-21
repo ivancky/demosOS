@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent3);
                         break;
                     case 4: // wall washer demo
-                        Intent intent4 = new Intent(MainActivity.this, WallWasher.class);
+                        Intent intent4 = new Intent(MainActivity.this, Architecture.class);
                         intent4.putExtra("key", "wall");
                         startActivity(intent4);
                         break;
