@@ -14,6 +14,7 @@
     <string name="title_activity_horticulture">Horticulture</string>
     <string name="title_activity_heart">Heart</string>
     <string name="wall_washer">Architecture</string>
+    <string name="horti_consumer">Horticulture (consumer)</string>
 
     <!--Plant recipes-->
     <string name="growth">Growth</string>

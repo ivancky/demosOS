@@ -37,4 +37,8 @@ dependencies {
     compile 'me.relex:circleindicator:1.2.2@aar'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
     compile 'com.romandanylyk:pageindicatorview:1.0.0@aar'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    implementation 'com.github.imaNNeoFighT:ArcChartView:1.0.3.1'
+    compile 'com.github.eluleci:flatui:3.0.0'
+
 }

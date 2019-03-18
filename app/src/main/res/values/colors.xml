@@ -22,8 +22,24 @@
     <color name="colorLightBlue">#8cb8ff</color>
     <color name="colorLightGreen2">#adf78c</color>
     <color name="colorPurple">#ff14b0</color>
+    <color name="colorPurple_">#FFD6F5</color>
     <color name="colorPatina">#00CFFF</color>
-    <color name="colorYellow">#f7ec22</color>
+    <color name="colorYellow">#fff400</color>
+
+    <color name="colorCyan_">#acf0f0</color>
+    <color name="colorCyan">#23d5d4</color>
+    <color name="colorMint_">#ccffec</color>
+    <color name="colorMint">#86fbcf</color>
+    <color name="colorBlue2">#3fc4f6</color>
+    <color name="colorBlue2_">#aae3f9</color>
+    <color name="colorYellow_">#fffbaa</color>
+    <color name="colorAmber">#ff9a00</color>
+    <color name="colorAmber_">#ffdeac</color>
+
+
+
+
+
 
 
 

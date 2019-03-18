@@ -79,4 +79,12 @@
         <!-- <item name="android:menuItemBackground">@color/read</item> -->
     </style>
 
+    <style name="MyToggle" parent="@android:style/Widget.Material.Light.Button.Toggle">
+        <item name="android:textColorPrimary">#ff7043</item>
+        <item name="colorAccent">#26a69a</item>
+        <item name="android:colorControlNormal">#f9a825</item>
+        <item name="android:colorControlHighlight">@color/colorRed</item>
+        <item name="android:colorButtonNormal">@color/candy_primary</item>
+    </style>
+
 </resources>
