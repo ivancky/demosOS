@@ -21,8 +21,8 @@
     <color name="colorLightRed">#ffe5e5</color>
     <color name="colorLightBlue">#8cb8ff</color>
     <color name="colorLightGreen2">#adf78c</color>
-    <color name="colorPurple">#ff14b0</color>
-    <color name="colorPurple_">#FFD6F5</color>
+    <color name="colorPurple">#bd3aff</color>
+    <color name="colorPurple_">#f2dbff</color>
     <color name="colorPatina">#00CFFF</color>
     <color name="colorYellow">#fff400</color>
 
@@ -35,8 +35,18 @@
     <color name="colorYellow_">#fffbaa</color>
     <color name="colorAmber">#ff9a00</color>
     <color name="colorAmber_">#ffdeac</color>
+    <color name="colorLightGrey_">#eaf6ff</color>
+    <color name="colorAmber__">#ffe9c9</color>
 
 
+    <color name="colorDeepBlue">#3fc4f6</color>
+    <color name="colorEQWhite">#86fbcf</color>
+    <color name="colorHyperRed">#FF5252</color>
+    <color name="colorFarRed2">#D32F2F</color>
+    <color name="colorDeepBlue_">#aae3f9</color>
+    <color name="colorEQWhite_">#c6ffd7</color>
+    <color name="colorHyperRed_">#ffe5e5</color>
+    <color name="colorFarRed2_">#FFCCBC</color>
 
 
 

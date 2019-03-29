@@ -80,6 +80,11 @@
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Horticulture_prof"
+            android:label="Horticulture_prof"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Architecture"
             android:label="Architecture"
             android:noHistory="true"
@@ -107,8 +112,13 @@
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Horticulture_recipe_s5"
-            android:label="@string/title_activity_horticulture_recipe"
+        android:name=".Horticulture_recipe_s5"
+        android:label="@string/title_activity_horticulture_recipe"
+        android:noHistory="true"
+        android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Horticulture_recipe_consumer"
+            android:label="Horticulture_recipe_consumer"
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

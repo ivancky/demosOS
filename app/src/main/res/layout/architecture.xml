@@ -23,7 +23,7 @@
         app:acv_lines_count="8"
         app:acv_lines_space="2dp"
         app:acv_lines_width="19dp"
-        app:acv_mid_start_extra_offset="50dp"
+        app:acv_mid_start_extra_offset="100dp"
         app:acv_sections_count="7"
         app:acv_sections_space="5dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"

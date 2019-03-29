@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context="com.osram.os.demos.Horticulture_consumer"
+    tools:context="com.osram.os.demos.Horticulture_prof"
     tools:layout_editor_absoluteY="81dp">
 
     <android.support.v4.view.ViewPager
@@ -98,6 +98,7 @@
 
     </android.support.constraint.ConstraintLayout>
 
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -147,17 +148,15 @@
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:maxLines="2"
-            android:text="Purple, Lime, \nFSW 4000K / 5000K"
+            android:text="DB, Mint, HR, FR"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toEndOf="@+id/divider_1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView5"
@@ -165,7 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Duris S5 Horti"
+            android:text="OSCONIQ P3030"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/colorPrimary"
             android:textSize="22sp"
@@ -174,5 +173,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
+
 
 </android.support.constraint.ConstraintLayout>
