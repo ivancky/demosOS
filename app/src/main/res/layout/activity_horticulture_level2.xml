@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context="com.osram.os.demos.Horticulture_consumer"
+    tools:context="com.osram.os.demos.Horticulture_Level2"
     tools:layout_editor_absoluteY="81dp">
 
     <android.support.v4.view.ViewPager
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <com.neo.arcchartview.ArcChartView
-            android:id="@+id/arc_chart_view_horti"
+            android:id="@+id/arc_chart_view_level2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -70,12 +70,12 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:acv_icon_size="0dp"
-            app:acv_lines_count="8"
-            app:acv_lines_space="2dp"
-            app:acv_lines_width="15dp"
-            app:acv_mid_start_extra_offset="40dp"
-            app:acv_sections_count="4"
-            app:acv_sections_space="4dp"
+            app:acv_lines_count="3"
+            app:acv_lines_space="4dp"
+            app:acv_lines_width="30dp"
+            app:acv_mid_start_extra_offset="70dp"
+            app:acv_sections_count="3"
+            app:acv_sections_space="16dp"
             app:layout_constraintBottom_toTopOf="@+id/btnReset"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -97,6 +97,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
+
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -147,17 +148,15 @@
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:maxLines="2"
-            android:text="Purple, Lime, \nFSW 4000K / 5000K"
+            android:text="Intensity"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toEndOf="@+id/divider_1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_type"
@@ -165,7 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Duris S5 Horti"
+            android:text="Recipe"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/colorPrimary"
             android:textSize="22sp"
@@ -174,5 +173,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
+
 
 </android.support.constraint.ConstraintLayout>

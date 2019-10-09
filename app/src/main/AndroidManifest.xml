@@ -85,6 +85,11 @@
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Horticulture_Level2"
+            android:label="Horticulture_Level2"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Architecture"
             android:label="Architecture"
             android:noHistory="true"

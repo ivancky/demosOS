@@ -264,7 +264,7 @@
 
 
         <TextView
-            android:id="@+id/tv_highest_rate"
+            android:id="@+id/tv_intensity"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -280,7 +280,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tv_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

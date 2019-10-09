@@ -16,6 +16,8 @@
     <string name="wall_washer">Architecture</string>
     <string name="horti_consumer">Horticulture (consumer)</string>
     <string name="horti_prof">Horticulture (professional)</string>
+    <string name="horti_level2">Horticulture (modular)</string>
+
 
 
     <!--Plant recipes-->

@@ -44,37 +44,42 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
                 switch(position){
-                    case 0: // wall washer demo
+                    case 0: // modular horti demo
+                        Intent intent7 = new Intent(MainActivity.this, Horticulture_Level2.class);
+                        intent7.putExtra("key", "module");
+                        startActivity(intent7);
+                        break;
+                    case 1: // wall washer demo
                         Intent intent4 = new Intent(MainActivity.this, Architecture.class);
                         intent4.putExtra("key", "wall");
                         startActivity(intent4);
                         break;
-                    case 2: // wall washer demo
+                    case 3: // wall washer demo
                         Intent intent6 = new Intent(MainActivity.this, Horticulture_prof.class);
                         intent6.putExtra("key", "hortiprof");
                         startActivity(intent6);
                         break;
-                    case 3: // wall washer demo
+                    case 4: // wall washer demo
                         Intent intent5 = new Intent(MainActivity.this, Horticulture_consumer.class);
                         intent5.putExtra("key", "horticonsumer");
                         startActivity(intent5);
                         break;
-                    case 4: // horticulture
+                    case 5: // horticulture
                         Intent intent = new Intent(MainActivity.this, Bluetooth.class);
                         intent.putExtra("key", "horti");
                         startActivity(intent);
                         break;
-                    case 5: // horticulture
+                    case 6: // horticulture
                         Intent intent2 = new Intent(MainActivity.this, Bluetooth.class);
                         intent2.putExtra("key", "horti2");
                         startActivity(intent2);
                         break;
-                    case 1: // heart-rate sensing
+                    case 2: // heart-rate sensing
                         Intent intent1 = new Intent(MainActivity.this, Bluetooth.class);
                         intent1.putExtra("key", "heart");
                         startActivity(intent1);
                         break;
-                    case 6: // S5 horti demo
+                    case 7: // S5 horti demo
                         Intent intent3 = new Intent(MainActivity.this, Bluetooth.class);
                         intent3.putExtra("key", "S5");
                         startActivity(intent3);
@@ -97,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Demos[] demos = {
+            new Demos(R.string.horti_level2, R.drawable.horti_level2),
             new Demos(R.string.wall_washer, R.drawable.wallwasher),
             new Demos(R.string.heart_rate_sensing, R.drawable.colors),
             new Demos(R.string.horti_prof, R.drawable.prof_horti),

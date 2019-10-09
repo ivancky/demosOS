@@ -81,7 +81,7 @@
         app:layout_constraintTop_toTopOf="@+id/tv_verage_rate" />
 
     <TextView
-        android:id="@+id/tv_highest_rate"
+        android:id="@+id/tv_intensity"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
