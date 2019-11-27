@@ -146,7 +146,6 @@ public class Horticulture_Level2 extends AppCompatActivity implements View.OnCli
                         Horti_FragmentGraph_Level2 fragment2 = (Horti_FragmentGraph_Level2) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.vpPager+":0");
                         fragment2.updateGraph(1, Vegei);
                         fragment2.updateGraph(0, 0);
-                        fragment2.updateGraph(2, 0);
                         sendMessage("%" + Integer.toString(i1));
                         switch (i1) {
                             case 0:
